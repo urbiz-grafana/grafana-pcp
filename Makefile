@@ -57,6 +57,9 @@ build-frontend: deps-frontend ## Build frontend data sources
 	# check for javascript greater than 1 MB
 	test $$(find dist/ -name '*.js' -size +1024k | wc -l) -eq 1 || exit 1
 
+	# bundle catalog docs (referenced via docsPath in plugin.json, not handled by webpack)
+	cp -r catalog-docs dist/catalog-docs
+
 GO_LD_FLAGS := -w -s -extldflags "-static"
 build-backend: deps-backend ## Build backend data source
 	#mage buildAll

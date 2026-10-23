@@ -10,7 +10,9 @@
     "test:ci": "jest --passWithNoTests --detectOpenHandles",
     "sign": "npx @grafana/sign-plugin@latest",
     "e2e": "playwright test",
-    "e2e:open": "playwright test --ui"
+    "e2e:open": "playwright test --ui",
+    "docs:serve": "plugin-docs-cli serve --port 3001 --reload",
+    "docs:validate": "plugin-docs-cli validate"
   },
   "author": "Performance Co-Pilot and Netflix",
   "license": "Apache-2.0",
@@ -23,6 +25,7 @@
     "@axe-core/playwright": "^4.11.1",
     "@grafana/data": "12.4.2",
     "@grafana/eslint-config": "^9.0.0",
+    "@grafana/plugin-docs-cli": "^0.8.0",
     "@grafana/plugin-e2e": "3.11.0",
     "@grafana/runtime": "12.4.2",
     "@grafana/tsconfig": "^2.0.1",

@@ -1,160 +1,161 @@
 {
-    "type": "app",
-    "name": "Performance Co-Pilot",
-    "id": "performancecopilot-pcp-app",
-    "info": {
-        "description": "Integrates Performance Co-Pilot metrics into Grafana with real-time monitoring, historical analysis, and eBPF tracing.",
-        "author": {
-            "name": "Performance Co-Pilot",
-            "url": "https://pcp.io"
-        },
-        "keywords": ["performancecopilot", "pcp", "ebpf", "bpftrace", "containers"],
-        "logos": {
-            "small": "img/pcp-logo.svg",
-            "large": "img/pcp-logo.svg"
-        },
-        "links": [
-            {
-                "name": "GitHub",
-                "url": "https://github.com/performancecopilot/grafana-pcp"
-            },
-            {
-                "name": "License",
-                "url": "https://github.com/performancecopilot/grafana-pcp/blob/main/LICENSE"
-            },
-            {
-                "name": "Notice",
-                "url": "https://github.com/performancecopilot/grafana-pcp/blob/main/NOTICE"
-            },
-            {
-                "name": "sponsorship",
-                "url": "https://hcb.hackclub.com/pcp"
-            }
-        ],
-        "screenshots": [
-            {
-                "name": "Vector Overview",
-                "path": "img/screenshots/vector-overview.png"
-            },
-            {
-                "name": "bpftrace CPU",
-                "path": "img/screenshots/bpftrace-cpu.png"
-            },
-            {
-                "name": "bpftrace Flame Graph",
-                "path": "img/screenshots/bpftrace-flame-graph.png"
-            },
-            {
-                "name": "Metric Search",
-                "path": "img/screenshots/search.png"
-            }
-        ],
-        "version": "%VERSION%",
-        "updated": "%TODAY%"
+  "type": "app",
+  "name": "Performance Co-Pilot",
+  "id": "performancecopilot-pcp-app",
+  "info": {
+    "description": "Integrates Performance Co-Pilot metrics into Grafana with real-time monitoring, historical analysis, and eBPF tracing.",
+    "author": {
+      "name": "Performance Co-Pilot",
+      "url": "https://pcp.io"
     },
-    "includes": [
-        {
-            "type": "datasource",
-            "name": "PCP Valkey",
-            "path": "datasources/valkey/plugin.json"
-        },
-        {
-            "type": "datasource",
-            "name": "PCP Vector",
-            "path": "datasources/vector/plugin.json"
-        },
-        {
-            "type": "datasource",
-            "name": "PCP bpftrace",
-            "path": "datasources/bpftrace/plugin.json"
-        },
-        {
-            "type": "page",
-            "name": "Metric Search",
-            "path": "/a/performancecopilot-pcp-app",
-            "addToNav": true,
-            "defaultNav": true
-        },
-        {
-            "type": "panel",
-            "name": "PCP Flame Graph",
-            "path": "panels/flamegraph/plugin.json"
-        },
-        {
-            "type": "panel",
-            "name": "PCP Troubleshooting Panel",
-            "path": "panels/troubleshooting/plugin.json"
-        },
-        {
-            "type": "panel",
-            "name": "PCP Breadcrumbs panel",
-            "path": "panels/breadcrumbs/plugin.json"
-        },
-        {
-            "type": "dashboard",
-            "name": "PCP Valkey: Metric Preview (Graph)",
-            "path": "dashboards/valkey/preview/pcp-valkey-metric-preview-graph.json"
-        },
-        {
-            "type": "dashboard",
-            "name": "PCP Valkey: Metric Preview (Table)",
-            "path": "dashboards/valkey/preview/pcp-valkey-metric-preview-table.json"
-        },
-        {
-            "type": "dashboard",
-            "name": "PCP Vector Checklist",
-            "path": "dashboards/vector/checklist/pcp-vector-checklist.json",
-            "uid": "pcp-vector-checklist",
-            "addToNav": true
-        },
-        {
-            "type": "dashboard",
-            "name": "PCP Vector Checklist: CPU",
-            "path": "dashboards/vector/checklist/pcp-vector-checklist-cpu.json"
-        },
-        {
-            "type": "dashboard",
-            "name": "PCP Vector Checklist: CPU System",
-            "path": "dashboards/vector/checklist/pcp-vector-checklist-cpu-sys.json"
-        },
-        {
-            "type": "dashboard",
-            "name": "PCP Vector Checklist: CPU User",
-            "path": "dashboards/vector/checklist/pcp-vector-checklist-cpu-user.json"
-        },
-        {
-            "type": "dashboard",
-            "name": "PCP Vector Checklist: Storage",
-            "path": "dashboards/vector/checklist/pcp-vector-checklist-storage.json"
-        },
-        {
-            "type": "dashboard",
-            "name": "PCP Vector Checklist: Memory",
-            "path": "dashboards/vector/checklist/pcp-vector-checklist-memory.json"
-        },
-        {
-            "type": "dashboard",
-            "name": "PCP Vector Checklist: Memory Swap",
-            "path": "dashboards/vector/checklist/pcp-vector-checklist-memory-swap.json"
-        },
-        {
-            "type": "dashboard",
-            "name": "PCP Vector Checklist: Network",
-            "path": "dashboards/vector/checklist/pcp-vector-checklist-network.json"
-        },
-        {
-            "type": "dashboard",
-            "name": "PCP Vector Checklist: Network RX",
-            "path": "dashboards/vector/checklist/pcp-vector-checklist-network-rx.json"
-        },
-        {
-            "type": "dashboard",
-            "name": "PCP Vector Checklist: Network TX",
-            "path": "dashboards/vector/checklist/pcp-vector-checklist-network-tx.json"
-        }
+    "keywords": ["performancecopilot", "pcp", "ebpf", "bpftrace", "containers"],
+    "logos": {
+      "small": "img/pcp-logo.svg",
+      "large": "img/pcp-logo.svg"
+    },
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/performancecopilot/grafana-pcp"
+      },
+      {
+        "name": "License",
+        "url": "https://github.com/performancecopilot/grafana-pcp/blob/main/LICENSE"
+      },
+      {
+        "name": "Notice",
+        "url": "https://github.com/performancecopilot/grafana-pcp/blob/main/NOTICE"
+      },
+      {
+        "name": "sponsorship",
+        "url": "https://hcb.hackclub.com/pcp"
+      }
     ],
-    "dependencies": {
-        "grafanaDependency": ">=12.4.3",
-        "plugins": []
+    "screenshots": [
+      {
+        "name": "Vector Overview",
+        "path": "img/screenshots/vector-overview.png"
+      },
+      {
+        "name": "bpftrace CPU",
+        "path": "img/screenshots/bpftrace-cpu.png"
+      },
+      {
+        "name": "bpftrace Flame Graph",
+        "path": "img/screenshots/bpftrace-flame-graph.png"
+      },
+      {
+        "name": "Metric Search",
+        "path": "img/screenshots/search.png"
+      }
+    ],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "includes": [
+    {
+      "type": "datasource",
+      "name": "PCP Valkey",
+      "path": "datasources/valkey/plugin.json"
+    },
+    {
+      "type": "datasource",
+      "name": "PCP Vector",
+      "path": "datasources/vector/plugin.json"
+    },
+    {
+      "type": "datasource",
+      "name": "PCP bpftrace",
+      "path": "datasources/bpftrace/plugin.json"
+    },
+    {
+      "type": "page",
+      "name": "Metric Search",
+      "path": "/a/performancecopilot-pcp-app",
+      "addToNav": true,
+      "defaultNav": true
+    },
+    {
+      "type": "panel",
+      "name": "PCP Flame Graph",
+      "path": "panels/flamegraph/plugin.json"
+    },
+    {
+      "type": "panel",
+      "name": "PCP Troubleshooting Panel",
+      "path": "panels/troubleshooting/plugin.json"
+    },
+    {
+      "type": "panel",
+      "name": "PCP Breadcrumbs panel",
+      "path": "panels/breadcrumbs/plugin.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "PCP Valkey: Metric Preview (Graph)",
+      "path": "dashboards/valkey/preview/pcp-valkey-metric-preview-graph.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "PCP Valkey: Metric Preview (Table)",
+      "path": "dashboards/valkey/preview/pcp-valkey-metric-preview-table.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "PCP Vector Checklist",
+      "path": "dashboards/vector/checklist/pcp-vector-checklist.json",
+      "uid": "pcp-vector-checklist",
+      "addToNav": true
+    },
+    {
+      "type": "dashboard",
+      "name": "PCP Vector Checklist: CPU",
+      "path": "dashboards/vector/checklist/pcp-vector-checklist-cpu.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "PCP Vector Checklist: CPU System",
+      "path": "dashboards/vector/checklist/pcp-vector-checklist-cpu-sys.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "PCP Vector Checklist: CPU User",
+      "path": "dashboards/vector/checklist/pcp-vector-checklist-cpu-user.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "PCP Vector Checklist: Storage",
+      "path": "dashboards/vector/checklist/pcp-vector-checklist-storage.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "PCP Vector Checklist: Memory",
+      "path": "dashboards/vector/checklist/pcp-vector-checklist-memory.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "PCP Vector Checklist: Memory Swap",
+      "path": "dashboards/vector/checklist/pcp-vector-checklist-memory-swap.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "PCP Vector Checklist: Network",
+      "path": "dashboards/vector/checklist/pcp-vector-checklist-network.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "PCP Vector Checklist: Network RX",
+      "path": "dashboards/vector/checklist/pcp-vector-checklist-network-rx.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "PCP Vector Checklist: Network TX",
+      "path": "dashboards/vector/checklist/pcp-vector-checklist-network-tx.json"
     }
+  ],
+  "dependencies": {
+    "grafanaDependency": ">=12.4.3",
+    "plugins": []
+  },
+  "docsPath": "catalog-docs"
 }
