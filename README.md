@@ -18,31 +18,6 @@ This Grafana app plugin integrates PCP metrics into Grafana, bundling three data
 
 [More screenshots](https://github.com/performancecopilot/grafana-pcp/tree/main/src/img/screenshots)
 
-## Requirements
-
-- **Grafana** >= 12.4.3
-- **Performance Co-Pilot (PCP)** with `pmcd` and `pmproxy` running on the monitored host(s)
-  - PCP Vector and PCP bpftrace connect to `pmproxy` for real-time metrics
-- **Valkey** (or Redis) with `pmlogger` archiving metrics and `pmproxy` configured to write to the key server for the PCP Valkey datasource
-- **bpftrace** installed on the monitored host for the PCP bpftrace datasource
-- For **full-text metric search**: `pmproxy` with `[pmsearch] enabled = true` and a search index built by `pmsearch_daily(1)` (SQLite-backed; requires a PCP release that includes the reimplemented search backend)
-
-## Getting Started
-
-1. **Install the plugin** from the [Grafana plugin catalog](https://grafana.com/grafana/plugins/performancecopilot-pcp-app/) or with the Grafana CLI:
-   ```bash
-   grafana cli plugins install performancecopilot-pcp-app
-   ```
-
-2. **Enable the app plugin** in Grafana under **Administration > Plugins > Performance Co-Pilot** and click **Enable**.
-
-3. **Configure a datasource** under **Connections > Data sources > Add data source**:
-   - **PCP Vector** — for real-time metrics from a single host. Set the URL to your `pmproxy` instance (default: `http://localhost:44322`).
-   - **PCP Valkey** — for historical metrics stored in Valkey/Redis. Set the URL to your `pmproxy` instance.
-   - **PCP bpftrace** — for eBPF tracing scripts. Set the URL to your `pmproxy` instance.
-
-4. **Import bundled dashboards** from each datasource's settings page under the **Dashboards** tab. The PCP Vector Checklist dashboards use the [USE method](http://www.brendangregg.com/usemethod.html) to detect potential performance issues.
-
 ## Features
 
 * Analysis of historical PCP metrics using [pmseries](https://man7.org/linux/man-pages/man1/pmseries.1.html) query language
@@ -67,6 +42,6 @@ This Grafana app plugin integrates PCP metrics into Grafana, bundling three data
 [2] PCP Vector
 [3] PCP bpftrace
 
-## [Documentation](https://grafana-pcp.readthedocs.io)
+For setup, configuration and data source requirements, refer to the Documentation tab on the [plugin's catalog page](https://grafana.com/grafana/plugins/performancecopilot-pcp-app/) or to the full [Documentation](https://grafana-pcp.readthedocs.io).
 
 ## [Contributing](https://github.com/performancecopilot/grafana-pcp/blob/main/CONTRIBUTING.md)

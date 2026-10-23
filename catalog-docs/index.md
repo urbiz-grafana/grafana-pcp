@@ -8,19 +8,18 @@ keywords:
 sidebar_position: 1
 ---
 
-<!-- section-brief
-Fill this in: Write a short orientation for someone who already has Performance Co-Pilot installed and landed here from the Documentation tab. One or two sentences on what this section covers and how it's organized. Do not restate what the app does or its feature list - that's the README's job on the Overview tab, and this reader has already seen it there. Do not list every page in this folder either - the sidebar already does that; use prose to say what to read first and why.
--->
+Set up Performance Co-Pilot here, then use [Common tasks](#common-tasks) to find what to read next.
 
 ## Before you begin
 
 Before you set up the app, ensure you have:
 
 - **Grafana permissions:** The `Organization administrator` role. Only organization administrators can enable and configure apps.
-
-<!-- section-brief
-Fill this in: Keep the list above. Add a bullet in the same **Label:** form for each other thing the reader needs: the Grafana version from `dependencies.grafanaDependency` in `src/plugin.json`, each plugin in `dependencies.plugins` linked to its catalog page at `https://grafana.com/grafana/plugins/<id>/`, and anything `src/plugin.json` doesn't declare, such as an external service, a telemetry pipeline or a license. Never cover installing the plugin itself, because the Installation tab on the plugin page owns it.
--->
+- **Grafana version:** Grafana 12.4.3 or later.
+- **Performance Co-Pilot (PCP):** `pmcd` and `pmproxy` running on each monitored host.
+- **Valkey or Redis:** Required only for the PCP Valkey data source, with `pmlogger` archiving metrics and `pmproxy` configured to write them to the key server.
+- **bpftrace:** Installed on the monitored host, required only for the PCP bpftrace data source.
+- **Full-text metric search:** `pmproxy` with `[pmsearch] enabled = true` and a search index built by `pmsearch_daily(1)`, required only for the [Metric Search page](./performance-co-pilot.md).
 
 ## Enable the app
 
@@ -35,29 +34,22 @@ To enable Performance Co-Pilot:
 
 <!-- /snippet:enable-app -->
 
-<!-- section-brief
-Fill this in: If `src/plugin.json` sets `"autoEnabled": true`, the app is enabled when it's installed, so remove this section, including the steps and their snippet markers. Otherwise keep the steps above and remove only this brief.
--->
-
 After you enable the app, refer to [Configure](./configure.md) for its settings.
 
 ## Connect your data
 
-<!-- section-brief
-Fill this in: The steps to get the data the app shows into Grafana, such as adding a data source, setting up an agent, setting environment variables or configuring a telemetry exporter. Take them from the README's setup sections and from what the app queries in source. Give each step the commands or settings to copy, and say how the reader can tell the data has arrived. Change the heading if necessary to name the task, such as "Add a data source". Never include steps to install the plugin itself, because the Installation tab on the plugin page owns them.
+Add a data source for each type of metric you want to analyze:
 
-If the app works without any setup of its own, remove this section entirely.
--->
+1. Click **Connections** > **Data sources** > **Add data source**.
+2. Select **PCP Valkey** for historical metrics across multiple hosts, **PCP Vector** for real-time metrics from a single host, or **PCP bpftrace** for eBPF tracing scripts.
+3. Set the URL to your `pmproxy` instance. The default, `http://localhost:44322`, works in most cases.
+4. Click **Save & test**. A successful test confirms the data source can reach `pmproxy`.
+
+Each data source ships with its own dashboards. Refer to [Dashboards](./dashboards.md) to import them.
 
 ## Common tasks
 
-<!-- section-brief
-Fill this in: List the jobs someone lands here to do, phrased as tasks rather than page titles, each linked to the page that answers it. For a typical app this might look like:
-
-- [Change the app settings](./configure.md)
-- [Find your way around Performance Co-Pilot](./performance-co-pilot.md)
-- [Import the dashboards that ship with the app](./dashboards.md)
+- [Add and configure a PCP data source](#connect-your-data)
+- [Search and inspect PCP metrics](./performance-co-pilot.md)
+- [Import the dashboards that ship with each data source](./dashboards.md)
 - [Fix setup and data errors](./troubleshooting.md)
-
-Adapt this to Performance Co-Pilot's actual entry points - add, remove or reword tasks so each one matches a real job a user comes here to do. This is a curated set of jobs, not a mechanical list of every file in this folder.
--->

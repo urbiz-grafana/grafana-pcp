@@ -28,6 +28,17 @@ Imported dashboards don't update when you upgrade the plugin. When a plugin upgr
 
 ## Included dashboards
 
-<!-- section-brief
-Fill this in: One H3 per dashboard in the `includes` list of `src/plugin.json` whose `type` is `dashboard`, using its `name`. For each one, describe what it shows and what data or settings it needs to work, based on the panels and queries in its JSON file. When the app ships many dashboards, group related ones under a shared H3 and list them, rather than repeating the same description.
--->
+### PCP Valkey: Metric Preview dashboards
+
+**PCP Valkey: Metric Preview (Graph)** and **PCP Valkey: Metric Preview (Table)** let you pick any PCP metric from a drop-down list and plot it as a time series graph or a table, using the PCP Valkey data source. Open one directly from a metric's detail page on the [Metric Search page](./performance-co-pilot.md#view-metric-details) by clicking **Preview**, which pre-fills the metric for you.
+
+### PCP Vector Checklist dashboards
+
+**PCP Vector Checklist** is a USE-method (Utilization Saturation and Errors) dashboard for a single host, using the PCP Vector data source. Its CPU, Storage, Memory and Network panels flag utilization above a threshold and link to a dedicated dashboard for that resource:
+
+- PCP Vector Checklist: CPU, CPU System, CPU User
+- PCP Vector Checklist: Storage
+- PCP Vector Checklist: Memory, Memory Swap
+- PCP Vector Checklist: Network, Network RX, Network TX
+
+Each linked dashboard breaks down its resource further, for example per-CPU or per-disk utilization, to help you find the cause of a flagged warning.
